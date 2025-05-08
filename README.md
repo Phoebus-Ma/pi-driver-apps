@@ -13,4 +13,3 @@ opi: orangepi pi.
 # License
 
 MIT License.
-
