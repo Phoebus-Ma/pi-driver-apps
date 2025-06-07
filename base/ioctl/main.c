@@ -142,7 +142,7 @@ hello_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
         }
 
         value = value * 2;
-        printk("%s: HELLO_IOCEXCHANGE value * 2 = %d.\n", DRIVER_NAME, value);
+        printk("%s: HELLO_IOCEXCHANGE value * 2 = %lld.\n", DRIVER_NAME, value);
 
         if (copy_to_user((int __user *)arg, &value, sizeof(value))) {
             printk("%s: Error in ioctl HELLO_IOCID.\n", DRIVER_NAME);
