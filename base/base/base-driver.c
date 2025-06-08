@@ -27,6 +27,29 @@ struct hello_object {
 
 struct hello_object *hello_drv = NULL;
 
+
+/**
+ * hello_open - open device.
+*/
+static int
+hello_open(struct inode *inode , struct file *file)
+{
+    memset(hello_drv->buf, 0, MAX_BUFFER_LEN + 1);
+
+    return 0;
+}
+
+/**
+ * hello_close - close device.
+*/
+static int
+hello_close(struct inode *inode, struct file *file)
+{
+    memset(hello_drv->buf, 0, MAX_BUFFER_LEN + 1);
+
+    return 0;
+}
+
 /**
  * hello_read - User read from driver local buffer.
 */
@@ -55,28 +78,6 @@ hello_write(struct file *file, const char __user *buffer, size_t count, loff_t *
     printk("%s: Write %s.\n", DRIVER_NAME, hello_drv->buf);
 
     return (len - ret);
-}
-
-/**
- * hello_open - open device.
-*/
-static int
-hello_open(struct inode *inode , struct file *file)
-{
-    memset(hello_drv->buf, 0, MAX_BUFFER_LEN + 1);
-
-    return 0;
-}
-
-/**
- * hello_close - close device.
-*/
-static int
-hello_close(struct inode *inode, struct file *file)
-{
-    memset(hello_drv->buf, 0, MAX_BUFFER_LEN + 1);
-
-    return 0;
 }
 
 struct file_operations hello_fops = {
