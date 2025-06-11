@@ -12,4 +12,4 @@ opi: orangepi pi.
 
 # License
 
-MIT License.
+The applications use the MIT license, and the drivers use the GPL-2.0 license.

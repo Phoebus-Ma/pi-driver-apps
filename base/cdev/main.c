@@ -1,6 +1,6 @@
 /**
  * main.c
- * This file is base iotctl driver example.
+ * This file is base cdev driver example.
  * 
  * License - GPL-2.0.
 */
@@ -14,7 +14,7 @@
 
 
 #define DRIVER_DEVICE           "cdev_device"
-#define DRIVER_CLASS            "cdev_lass"
+#define DRIVER_CLASS            "cdev_class"
 #define DRIVER_NAME             "cdev_driver"
 
 #define DEVICE_MAJOR            0
